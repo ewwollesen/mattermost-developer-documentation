@@ -7,23 +7,23 @@ weight: 80
 
 Bot accounts access the Mattermost [RESTful API](https://api.mattermost.com) on behalf of a bot through the use of the [personal access tokens feature](../admin-personal-access-token.md). Bot accounts are just like user accounts, except they:
 
-  - Can't be logged into.
-  - Can't be used to create other bot accounts.
-  - Don't count as a registered user and therefore don't count towards the total number of users for an Enterprise Edition license.
+-   Can't be logged into.
+-   Can't be used to create other bot accounts.
+-   Don't count as a registered user and therefore don't count towards the total number of users for an Enterprise Edition license.
 
 Additional benefits include:
 
-  - System Admins can enable Bot accounts to post to any channel in the system, including private teams, private channels, or Direct Message channels.
-  - Integrations created by a user and tied to a bot account no longer break if the user leaves the company.
-  - Once created, bot accounts behave just like regular user accounts and can be added to teams and channels similar to users.
-  - Bot accounts are a safer way to integrate with Mattermost through the RESTful API and Plugin API because there is no need to manage shared logins with these accounts.
-  - A `BOT` tag is used throughout Mattermost where bot accounts are referenced, including messages and user lists.
+-   System Admins can enable Bot accounts to post to any channel in the system, including private teams, private channels, or Direct Message channels.
+-   Integrations created by a user and tied to a bot account no longer break if the user leaves the company.
+-   Once created, bot accounts behave just like regular user accounts and can be added to teams and channels similar to users.
+-   Bot accounts are a safer way to integrate with Mattermost through the RESTful API and Plugin API because there is no need to manage shared logins with these accounts.
+-   A `BOT` tag is used throughout Mattermost where bot accounts are referenced, including messages and user lists.
 
 Note that currently:
 
-  - Only System Admins or plugins can create or manage bot accounts.
-  - Only user accounts can create and configure webhooks and slash commands.
-  - In Mattermost Enterprise Edition, service accounts without an email address pulled from LDAP or SAML systems are not yet supported.
+-   Only System Admins or plugins can create or manage bot accounts.
+-   Only user accounts can create and configure webhooks and slash commands.
+-   In Mattermost Enterprise Edition, service accounts without an email address pulled from LDAP or SAML systems are not yet supported.
 
 If you would like to see improvements to bot accounts, [let us know in the Feature Proposal Forum](https://mattermost.uservoice.com).
 
@@ -89,16 +89,16 @@ Each bot account has a row in the **Users** table and the **Bots** table. The en
 
 The Bots table schema is described as follows:
 
-| Field    |  Description   |  Type   |  Required   | 
-|----------|----------------|---------|-------------|
-| UserId | User ID of the bot user | string | Y |
-| Username | Username of the bot account | string | Y |   
-| DisplayName | Display name of the bot account | string | N |   
-| Description | Description of the bot account | string | N |
-| OwnerId | User ID of the owner of the bot | string | Y |
-| CreateAt | Unix timestamp of creation time | int64 | Y |
-| UpdateAt | Unix timestamp of update time | int64 | Y |
-| DeleteAt | Unix timestamp of deletion time | int64 | Y |
+| Field       | Description                     | Type   | Required |
+| ----------- | ------------------------------- | ------ | -------- |
+| UserId      | User ID of the bot user         | string | Y        |
+| Username    | Username of the bot account     | string | Y        |
+| DisplayName | Display name of the bot account | string | N        |
+| Description | Description of the bot account  | string | N        |
+| OwnerId     | User ID of the owner of the bot | string | Y        |
+| CreateAt    | Unix timestamp of creation time | int64  | Y        |
+| UpdateAt    | Unix timestamp of update time   | int64  | Y        |
+| DeleteAt    | Unix timestamp of deletion time | int64  | Y        |
 
 ## Frequently Asked Questions
 
@@ -136,9 +136,9 @@ Add the bot to a team and channel you belong to, then use the following curl com
 
 Replace the following parameters:
 
-- `<channel-id>` with the channel you added the bot to
-- `<bot-access-token>` with the bot access token generated when you created the bot account
-- `<mattermost-url>` with your Mattermost domain, e.g. ``https://example.mattermost.com``
+-   `<channel-id>` with the channel you added the bot to
+-   `<bot-access-token>` with the bot access token generated when you created the bot account
+-   `<mattermost-url>` with your Mattermost domain, e.g. `https://example.mattermost.com`
 
 ### Do bot access tokens expire?
 
@@ -152,8 +152,8 @@ Possibly yes. Currently a System Admin can disable overriding the profile pictur
 
 Mitigations:
 
-- `BOT` tag is used everywhere in the UI where bot accounts are referenced, including messages and user lists.
-- For Direct Message channels, the channel header distinguishes the bot from a regular user account with a ``BOT`` tag.
+-   `BOT` tag is used everywhere in the UI where bot accounts are referenced, including messages and user lists.
+-   For Direct Message channels, the channel header distinguishes the bot from a regular user account with a `BOT` tag.
 
 ### What happens when a user who owns bot accounts is disabled?
 
@@ -182,4 +182,4 @@ If you need to sync service accounts from AD/LDAP or SAML to Mattermost and use 
 
 ### How are bot accounts identified in compliance exports?
 
-As of v5.14, a field named `UserType` is added to Compliance Exports, including Global Relay, Actiance, and CSV. The field identifies whether a message was posted by a `user` or by a `bot` account.  
+As of v5.14, a field named `UserType` is added to Compliance Exports, including Global Relay, Actiance, and CSV. The field identifies whether a message was posted by a `user` or by a `bot` account.
